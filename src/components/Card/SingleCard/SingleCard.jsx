@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const SingleCard = ({ SingleData, handleMarkRead, handleBookmark }) => {
   const { picture, profile_image, name, read_time, title, _id } = SingleData;
   return (
-    <div className="w-[370px]  lg:w-fit space-y-5 p-5 lg:p-0 ">
+    <div className="w-[370px]  lg:w-fit space-y-5  p-5 lg:p-0 ">
       <img className="lg:w-[550px]  rounded-md" src={picture} alt="" />
       <div className="flex justify-between items-center">
         <div className="flex ">
@@ -44,7 +44,7 @@ const SingleCard = ({ SingleData, handleMarkRead, handleBookmark }) => {
       <h1 className="lg:text-3xl text-lg lg:w-[440px] font-bold text-slate-800 ">{title}</h1>
       <p className="text-slate-700 font-semibold text-sm">#beginner #programming #newBlog</p>
       <button
-        onClick={() => handleMarkRead(_id)}
+        onClick={() => handleMarkRead(read_time)}
         className="underline text-blue-700 font-semibold opacity-80">
         Mark as read
       </button>

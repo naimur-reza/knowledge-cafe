@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Card = () => {
   const [data, setData] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [count, setCount] = useState(0);
   const [book , setBook] = useState([]);
   useEffect(() => {
     fetch("https://naimur-reza.me/blog-ass-api/data.json")
@@ -13,10 +13,8 @@ const Card = () => {
       .then((data) => setData(data));
   }, []);
 //   Handling Mark as read
-  const handleMarkRead = (id) => {
-    const clickedItem = data.find((it) => it._id === id);
-    setCart([...cart, clickedItem]);
-    
+  const handleMarkRead = (read_time) => {
+    setCount(count+read_time);
   };
 //   Handling add to Bookmark
 const handleBookmark = (id) => {
@@ -53,7 +51,7 @@ const handleBookmark = (id) => {
       ))}
         </div>
           <div>
-        <SideCart cart={cart} book={book}></SideCart>
+        <SideCart count={count} book={book}></SideCart>
       </div>
     </div>
   );
